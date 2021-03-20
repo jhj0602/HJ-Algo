@@ -1,0 +1,34 @@
+package HighScoreKit;
+
+import java.util.HashMap;
+import java.util.Set;
+
+public class HashLevel1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String[] participant = { "mislav", "stanko", "mislav", "ana" };
+		String[] completion = {  "mislav" };
+		solution(participant, completion);
+	}
+
+	public static String solution(String[] participant, String[] completion) {
+		String answer = "";
+		HashMap<String, String> map = new HashMap<String, String>();
+		for (int i = 0; i < participant.length; i++) {
+			map.put(participant[i], "");
+		}
+		for (int i = 0; i < completion.length; i++) {
+			if (map.get(completion[i]) != null) {
+				map.remove(completion[i]);
+				
+			}
+		}
+
+		Set<String> answer2 = map.keySet();
+		answer = answer2.toString();
+		System.out.println(answer);
+		return answer;
+	}
+
+}
