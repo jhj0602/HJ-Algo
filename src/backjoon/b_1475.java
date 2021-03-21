@@ -9,9 +9,9 @@ public class b_1475 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String line = br.readLine();
 		int[] arr = new int[10];
-//계수 정렬
+        //계수 정렬
 		for (int i = 0; i < line.length(); i++) {
-			if (line.charAt(i) == '6' || line.charAt(i) == '9') {
+			if (line.charAt(i) == '6' || line.charAt(i) == '9') {//인덱스 9는 없애고 6으로 때려박기
 				arr[6]++;
 			}
 			else {
