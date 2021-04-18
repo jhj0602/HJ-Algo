@@ -34,7 +34,7 @@ public class B_2468 {
 			}
 		}
 		int result = 1;
-		for (int i = 0; i < N; i++) {
+		for (int i = min; i < max; i++) {
 			int cnt = 0;
 			for (int j = 0; j < 100; j++) {
 				Arrays.fill(visited[j], false);
