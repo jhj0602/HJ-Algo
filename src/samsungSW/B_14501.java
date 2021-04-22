@@ -10,7 +10,7 @@ public class B_14501 {
 	static int count = 0;
 	static int[][] arr;
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		N = Integer.parseInt(br.readLine());
 		arr = new int[N][2];
@@ -36,7 +36,7 @@ public class B_14501 {
 		} else {
 			benifitCalculate(x + arr[x][0], y);
 		}
-		System.out.println(arr[x][0]+ "count :"+count);
+
 		benifitCalculate(x + 1, y);
 	}
 
