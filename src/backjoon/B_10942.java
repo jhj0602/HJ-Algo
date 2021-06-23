@@ -1,95 +1,138 @@
 package backjoon;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
 
 public class B_10942 {
-	static int[] arr;
-	static StringTokenizer st;
 
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int N = Integer.parseInt(br.readLine());
-
-		arr = new int[N + 1];
-		st = new StringTokenizer(br.readLine());
-		for (int i = 1; i <= N; i++) {//병신같은 범위 때문에 3시간 ㅅㅂ
-			arr[i] = Integer.parseInt(st.nextToken());
-
-		}
-		int M = Integer.parseInt(br.readLine());
-		int[][] SE = new int[M][2];
-
-		for (int i = 0; i < M; i++) {
-			st = new StringTokenizer(br.readLine());
-			SE[i][0] = Integer.parseInt(st.nextToken());
-			SE[i][1] = Integer.parseInt(st.nextToken());
-
-			if (solution(SE[i][0], SE[i][1], i + 1)) {
-				bw.write(1 + "\n");
-			} else {
-				bw.write(0 + "\n");
-			}
-
-		}
-		bw.flush();
-		bw.close();
-		br.close();
-
+		int[][] maps = { { 1, 28, 41, 22, 25, 79, 4 }, { 39, 20, 10, 17, 19, 18, 8 }, { 21, 4, 13, 12, 9, 29, 19 },
+				{ 58, 1, 20, 5, 8, 16, 9 }, { 5, 6, 15, 2, 39, 8, 29 }, { 39, 7, 17, 5, 4, 49, 5 },
+				{ 74, 46, 8, 11, 25, 2, 11 } };
+		int p = 19;
+		int r = 6;
+		System.out.println(solution(maps, p, r));
 	}
 
-	static boolean solution(int x, int y, int p) {
-		// 짝수 홀수 비교
-		int compareNum = y - x + 1;
-		boolean result = true;
-
-		if (compareNum % 2 != 0) {
-
-			int cnt = 0;
-			// 홀수개
-			for (int i = 0; i < compareNum - 1; i++) {
-				if (cnt == compareNum / 2 + 1) {
-					result = true;
-					break;
+	public static int solution(int[][] maps, int p, int r) {
+		int answer = 0;
+		for (int i = 0; i <= maps.length; i++) {
+			for (int j = 0; j <= maps.length; j++) {
+				int tmp = 0;
+				int cnt = 1;
+				for (int x = Math.max(0, i - r / 2); x < i; x++, cnt++) {
+					for (int y = Math.max(0, j - cnt); y <= Math.min(maps.length, j + cnt); y++) {
+						if(maps[x][y] <= p)
+							tmp++;
+					}
 				}
-				if (arr[x] == arr[y]) {
-
-					cnt++;
-					x++;
-					y--;
-				} else {
-					result = false;
-					break;
+				System.out.println("교차");
+				for (int x = i; x <= Math.min(maps.length, i + r / 2); x++, cnt--) {
+					for (int y = Math.max(0, j - cnt); y <= Math.min(maps.length, j + cnt); y++) {
+						if(maps[x][y] <= p)
+							tmp++;
+					}
 				}
-
+				System.out.println();
 			}
-		} else {
-			// 짝수개
-			int cnt = 0;
-
-			for (int i = 0; i < compareNum + 1; i++) {
-				if (cnt == compareNum / 2) {
-					result = true;
-					break;
-				}
-				if (arr[x] == arr[y]) {
-					cnt++;
-					x++;
-					y--;
-				} else {
-					result = false;
-					break;
-				}
-
-			}
-
 		}
-		return result;
 
+		return answer;
 	}
 
 }
+
+//public static int[] solution(String code, String day, String[] data) {
+//	int cnt = 0;
+//    TreeMap<Integer,Integer> hm = new TreeMap<Integer,Integer>();
+//    for(int i = 0; i < data.length; i++) {
+//    	String t[] = data[i].split(" ");
+//    	if(t[1].endsWith(code)) {
+//    		if(t[2].substring(5,13).equals(day)) {
+//    			hm.put(Integer.parseInt(t[2].substring(13)),Integer.parseInt(t[0].substring(6)));
+//    			cnt++;
+//    		};
+//    	}
+//    }
+//    int[] answer = new int[cnt];
+//    cnt = 0;
+//    for(Integer i :hm.keySet()) {
+//    	answer[cnt++] = hm.get(i);
+//    }
+//    return answer;
+//}
+
+//class Person {
+//	int id;
+//	int time;
+//	int grade;
+//
+//	public Person(int id, int time, int grade) {
+//		this.id = id;
+//		this.time = time;
+//		this.grade = grade;
+//	}
+//}
+//public static int[] solution(int[] t, int[] r) {
+//	int[] answer = new int[t.length];
+//	ArrayList<Person> ps = new ArrayList<Person>();
+//	for (int i = 0; i < t.length; i++) {
+//		ps.add(new Person(i, t[i], r[i]));
+//	}
+//	Collections.sort(ps, new Comparator<Person>() {
+//		@Override
+//		public int compare(Person p1, Person p2) {
+//			if (p1.time < p2.time) {
+//				return -1;
+//			} else if (p1.time == p2.time) {
+//				if (p1.id < p2.id) {
+//					return -1;
+//				} else
+//					return 1;
+//			}
+//			return 1;
+//		}
+//	});
+//	PriorityQueue<Person> pq = new PriorityQueue<Person>(new Comparator<Person>() {
+//		@Override
+//		public int compare(Person p1, Person p2) {
+//			if (p1.grade < p2.grade) {
+//				return -1;
+//			} else if (p1.grade == p2.grade) {
+//				if (p1.time < p2.time) {
+//					return -1;
+//				} else if (p1.time == p2.time) {
+//					return p1.id < p2.id ? -1 : 1;
+//				} else
+//					return 1;
+//			} else
+//				return 1;
+//		};
+//	});
+//	int time = ps.get(0).time;
+//	int i = 0;
+//	int c = 0;
+//	while (i < t.length && time >= ps.get(i).time) {
+//		pq.add(ps.get(i));
+//		i++;
+//	}
+//	while (i < t.length) {
+//		while (pq.size() > 0 && time >= pq.peek().time) {
+//			Person x = pq.poll();
+//			answer[c++] = x.id;
+//			time++;
+//			while (i < t.length && time >= ps.get(i).time) {
+//				pq.add(ps.get(i));
+//				i++;
+//			}
+//		}
+//		if (pq.size() == 0 && i < t.length) {
+//			time = ps.get(i).time;
+//			while (i < t.length && time >= ps.get(i).time) {
+//				pq.add(ps.get(i));
+//				i++;
+//			}
+//		}
+//	}
+//
+//	return answer;
+//}
