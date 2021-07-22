@@ -2,7 +2,7 @@ package programmers;
 
 import java.util.ArrayList;
 
-public class BruteForce1 {
+public class Search1 {
 
 	public static void main(String[] args) {
 		int[] answers = { 1, 3, 2, 4, 2 };
