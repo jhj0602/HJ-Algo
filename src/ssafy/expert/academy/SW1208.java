@@ -16,37 +16,25 @@ public class SW1208 {
 			String[] strArr = br.readLine().split(" ");
 			Queue<String> firstQ = new LinkedList<>();
 			Queue<String> secondQ = new LinkedList<>();
-			int halfLen = 0;
-			if (N % 2 == 0) {
-				halfLen = strArr.length / 2;
-
-			} else {
-				halfLen = strArr.length / 2 + 1;
-			}
-
+			int halfLen = (int) Math.ceil(strArr.length / 2);
 			for (int i = 0; i < halfLen; i++) {
 				firstQ.offer(strArr[i]);
 			}
 			for (int i = halfLen; i < strArr.length; i++) {
 				secondQ.offer(strArr[i]);
 			}
-			sb.append("#"+test_case+" ");
-			while (true) {
-				if (!firstQ.isEmpty()||!secondQ.isEmpty()) {
+			sb.append("#" + test_case + " ");
+			for (int i = 0; i < halfLen; i++) {
+				if (!firstQ.isEmpty()) {
 					sb.append(firstQ.poll() + " ");
+				}
+				if (!secondQ.isEmpty()) {
 					sb.append(secondQ.poll() + " ");
 				}
-				
-				if (firstQ.isEmpty() && secondQ.isEmpty()) {
-					break;
-				}
-
 			}
 			sb.append("\n");
-
 		}
 		br.close();
 		System.out.println(sb);
 	}
-
 }
