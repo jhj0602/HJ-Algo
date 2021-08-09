@@ -31,7 +31,6 @@ public class SW1228 {
 				sb.append(list.get(i) + " ");
 			}
 			sb.append("\n");
-
 		}
 		System.out.println(sb);
 		br.close();

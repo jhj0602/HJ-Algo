@@ -17,20 +17,25 @@ public class PermutationTest {
 
 	private static void permutation(int cnt) {
 		if (cnt == R) {
+			System.out.println(cnt);
 			System.out.println(Arrays.toString(numbers));
 			return;
 		}
+		
 		for (int i = 1; i <= N; i++) {
 			if (isSelected[i])
 				continue;// 사용중인 수면 다음 수로
 
 			numbers[cnt] = i;
 			isSelected[i] = true;
-
+			System.out.println(cnt+ "cnt");
+			
 			permutation(cnt + 1);
+
 			isSelected[i] = false;
 
 		}
+		
 	}
 
 }

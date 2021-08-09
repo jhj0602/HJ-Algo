@@ -49,7 +49,7 @@ public class SW1218 {
 					}
 				}
 			}
-			if (stack.isEmpty() && flag)
+			if (stack.isEmpty())
 				sb.append("#" + test_case + " " + 1 + "\n");
 			else
 				sb.append("#" + test_case + " " + 0 + "\n");

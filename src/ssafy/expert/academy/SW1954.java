@@ -63,9 +63,21 @@ public class SW1954 {
 			} else if (patternCount == 0) {
 				dfs(x + d[patternCount][0], y + d[patternCount][1] - 1);
 			}
-
+			
+//	if (patternCount == 1) {
+//			px -= 1;
+//			} else if (patternCount == 2) {
+//				py += py + 1;
+//			} else if (patternCount == 3) {
+//				px += 1;
+//			} else if (patternCount == 0) {
+//				py -= 1;
+//			}
+//			dfs(px, py);
+			
 		}
 
 	}
+
 
 }
