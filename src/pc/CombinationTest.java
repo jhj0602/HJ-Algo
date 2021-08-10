@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class CombinationTest {
 	static int N = 5;
-	static int R = 3;
+	static int R = 2;
 	static int[] input;
 	static int[] numbers;
 	static boolean[] isSelected;

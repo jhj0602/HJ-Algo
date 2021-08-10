@@ -62,7 +62,6 @@ public class SW1210 {
 					flag = true;
 					return;
 				}
-
 			}
 
 		} else {
@@ -83,8 +82,6 @@ public class SW1210 {
 				}
 
 			}
-//			dfs(startX + dxUnder[0], startY + dyUnder[0], true);
-
 		}
 	}
 

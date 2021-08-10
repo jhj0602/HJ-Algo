@@ -1,4 +1,4 @@
-package ssafy.expert.academy;
+package ssafy.expert.academy.stack;
 
 import java.io.BufferedReader;
 import java.io.IOException;
