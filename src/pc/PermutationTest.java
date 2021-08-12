@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class PermutationTest {
 	static int N=3;
 	static int R = 3;
-	static int[] numbers;
+	static int[] numbers = {};
 	static boolean[] isSelected;
 
 	public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class PermutationTest {
 
 	private static void permutation(int cnt) {
 		if (cnt == R) {
-			System.out.println(cnt);
+			
 			System.out.println(Arrays.toString(numbers));
 			return;
 		}
@@ -28,7 +28,6 @@ public class PermutationTest {
 
 			numbers[cnt] = i;
 			isSelected[i] = true;
-			System.out.println(cnt+ "cnt");
 			
 			permutation(cnt + 1);
 

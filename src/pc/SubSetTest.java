@@ -27,7 +27,6 @@ public class SubSetTest {
 
 	private static void generateSubset1(int cnt) {// 부분집합 구하기
 		if (cnt == N) {// 하나의 부분집합이 완성 됐을 때 할일.
-
 			for (int i = 0; i < N; i++) {
 				System.out.print(isSelected[i] ? input[i] : "X");
 			}
