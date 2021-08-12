@@ -30,15 +30,12 @@ public class B1759_암호만들기_자음1모음2 {
 	}
 
 	private static void combination(int cnt, int start) {
-
 		if (cnt == L) {
 			int moum = 0;// 모음 카운트
-
 			for (int i = 0; i < temp.length; i++) {
 				String s = temp[i];
 				if (s.equals("a") || s.equals("e") || s.equals("i") || s.equals("o") || s.equals("u")) {
 					moum++;
-
 				}
 			}
 			if (moum != 0 && temp.length - moum >= 2) {
