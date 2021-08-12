@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class B2961 {
+public class B2961_부분집합 {
 	static class Dot {
 		int x;
 		int y;
@@ -27,7 +27,7 @@ public class B2961 {
 
 		N = Integer.parseInt(br.readLine());
 		arr = new Dot[N];
-		isSelected = new boolean[N];
+		
 
 		for (int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine());
@@ -47,9 +47,7 @@ public class B2961 {
 			}
 			return;
 		}
-		isSelected[cnt] = true;
 		generateSubset(cnt + 1, sin * arr[cnt].x, ssn + arr[cnt].y);
-		isSelected[cnt] = false;
 		generateSubset(cnt + 1, sin, ssn);
 	}
 
