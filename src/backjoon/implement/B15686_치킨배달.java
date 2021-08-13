@@ -53,9 +53,7 @@ public class B15686_치킨배달 {
 	}
 
 	private static void search() {
-
 		int sum = 0;
-
 		for (int i = 0; i < house.size(); i++) {
 			int min = Integer.MAX_VALUE;
 			for (int j = 0; j < temp.length; j++) {
