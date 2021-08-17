@@ -1,4 +1,4 @@
-package backjoon.exhaustive_search;
+package backjoon.exhaustive_search.subset;
 
 import java.io.BufferedReader;
 import java.io.IOException;
