@@ -30,9 +30,7 @@ public class B3109_빵집 {
 				System.out.println("안되는 열 "+i);
 			}
 		}
-
 		System.out.println(count);
-
 	}
 
 	static boolean backTracking(int x, int y) {
@@ -58,7 +56,6 @@ public class B3109_빵집 {
 				return true;
 			}
 		}
-		
 		return false;
 	}
 }
