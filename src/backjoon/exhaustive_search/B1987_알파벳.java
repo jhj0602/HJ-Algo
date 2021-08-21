@@ -33,21 +33,16 @@ public class B1987_알파벳 {
 	}
 
 	private static void dfs(int x, int y, int cnt) {
-
+		max = Math.max(max, cnt);
 		isAlpa[arr[x][y] - 'A'] = true;
 		for (int i = 0; i < 4; i++) {
 			int px = x + dx[i];
 			int py = y + dy[i];
-			if (0 <= px && R > px && 0 <= py && C > py) {
-				if (!isAlpa[arr[px][py] - 'A']) {
-					dfs(px, py, cnt + 1);
-				}
+			if (0 <= px && R > px && 0 <= py && C > py && !isAlpa[arr[px][py] - 'A']) {
+				dfs(px, py, cnt + 1);
 			}
-
 		}
 		isAlpa[arr[x][y] - 'A'] = false;
-		System.out.println(Arrays.toString(isAlpa));
-		max = Math.max(max, cnt);
 
 	}
 
