@@ -15,13 +15,14 @@ public class HashLevel2_2 {
 		solution(clothes2);
 
 	}
-	// 1.ÇØ½Ã Á¾·ù : °¹¼ö °ª ÀÔ·Â ¹Þ±â
-	// 2. getOrDefault ¸Þ¼Òµå Ã¹¹øÂ° ÀÎÀÚÀÇ °ªÀÌ Map¿¡ Á¸ÀçÇÏÁö ¾Ê´Â´Ù¸é Default·Î ¼³Á¤ÇÑ °ªÀ¸·Î °¡Á®¿È null¹æÁö
+	// 1.ï¿½Ø½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½Þ±ï¿½
+	// 2. getOrDefault ï¿½Þ¼Òµï¿½ Ã¹ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Mapï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´Ù¸ï¿½ Defaultï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nullï¿½ï¿½ï¿½ï¿½
 
 	public static int solution(String[][] clothes) {
 		int answer = 1;
 		HashMap<String, Integer> map = new HashMap<>();
 		for (int i = 0; i < clothes.length; i++) {
+			System.out.println(clothes[i][1]);
 			map.put(clothes[i][1], map.getOrDefault(clothes[i][1], 0) + 1);
 		}
 		System.out.println(map);

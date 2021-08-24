@@ -21,14 +21,12 @@ public class Sort2 {
 		for (int i = 0; i < array.length; i++) {
 			array[i] = String.valueOf(numbers[i]);
 		}
-
 		Arrays.sort(array, new Comparator<String>() {
 			@Override
 			public int compare(String s1, String s2) {
 				return (s2 + s1).compareTo(s1 + s2); 
 			}
 		});
-
 		for (int i = 0; i < array.length; i++) {
 			result += array[i];
 		}

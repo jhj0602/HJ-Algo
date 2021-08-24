@@ -10,7 +10,7 @@ public class CombinationTestWebX {
 
 	public static void main(String[] args) {
 		N = 5;// 총 숫자들
-		R = 3;// 뽑을 숫자
+		R = 5;// 뽑을 숫자
 		nums = new int[] { 1, 2, 3, 4, 5 };
 		selected = new int[R];// 뽑힌 값들이 저장될 배열
 		combination(0, 0);
