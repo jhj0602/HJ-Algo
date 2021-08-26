@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class SW1859 {
@@ -24,8 +23,7 @@ public class SW1859 {
 			int maxIdx =list.size()-1;
 			for (int i = list.size()-1; i >=1; i--) {
 				if (list.get(i-1) < list.get(maxIdx)) {
-					benifit += list.get(maxIdx)-list.get(i-1) ;
-				
+					benifit += list.get(maxIdx)-list.get(i-1) ;		
 				}else {
 					maxIdx=i-1;
 				}
