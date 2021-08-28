@@ -12,7 +12,7 @@ public class 소수찾기 {
 
 	public static void main(String[] args) {
 		solution("011");
-System.out.println(solution("011"));
+		System.out.println(solution("17"));
 	}
 
 	public static int solution(String numbers) {
@@ -20,13 +20,11 @@ System.out.println(solution("011"));
 		N = numbers.length();
 		str = numbers.split("");
 		arr = new String[N];
-		combination(0, 0);
-		set.remove(0);
-		set.remove(1);
+		permutation(0);
 		return answer = set.size();
 	}
 
-	private static void combination(int cnt, int start) {// 중복조합
+	private static void permutation(int cnt) {
 		if (cnt == N) {
 			String sum = "";
 			for (String s : arr) {
@@ -46,12 +44,13 @@ System.out.println(solution("011"));
 				set.add(value);
 				count++;
 			}
+			System.out.println(sum);
 
 			return;
 		}
 		for (int i = 0; i < N; i++) {
 			arr[cnt] = str[i];
-			combination(cnt + 1, i);
+			permutation(cnt + 1);
 
 		}
 	}

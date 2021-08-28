@@ -1,4 +1,4 @@
-package programmers;
+package programmers.stack_queue;
 
 import java.util.HashMap;
 
@@ -12,26 +12,21 @@ public class HashLevel2_2 {
 				{ "zz", "zz" } };
 
 		solution(clothes);
-//		solution(clothes2);
+		solution(clothes2);
 
 	}
-	// 1.�ؽ� ���� : ���� �� �Է� �ޱ�
-	// 2. getOrDefault �޼ҵ� ù��° ������ ���� Map�� �������� �ʴ´ٸ� Default�� ������ ������ ������ null����
-
-	public static int solution(String[][] clothes) {
+public static int solution(String[][] clothes) {
 		int answer = 1;
 		HashMap<String, Integer> map = new HashMap<>();
 		for (int i = 0; i < clothes.length; i++) {
-			System.out.println(clothes[i][1]);
-			map.put(clothes[i][1], map.getOrDefault(clothes[i][1], 1) + 1);
+			map.put(clothes[i][1], map.getOrDefault(clothes[i][1], 0) + 1);
 		}
 		System.out.println(map);
 		for (int i : map.values()) {
-			answer *= (i ); //의상 * 
-			
+			answer *= (i + 1);//입거나 안입거나의 선택지가 있음 옷의 개수에 안입는 거 +1해줌
 		}
-		//6
-		System.out.println(answer-1);
+
+		System.out.println(answer-1);//하나도 안입는게 없대요
 		return answer-1;
 	}
 }
