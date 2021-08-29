@@ -13,11 +13,17 @@ public class B12927 {
 		char[] arr = s.toCharArray();
 		int idx = 0;
 		int cnt = 0;
-		for(int i=1; i<arr.length; i++) {
-			if(arr[i]=='N') continue;
-			for(int j=i; j<arr.length; j+=i) {
-				if(arr[j]=='N') arr[j] = 'Y';
-				else if(arr[j]=='Y') arr[j] = 'N';
+		for (int i = 1; i < arr.length; i++) {
+			if (arr[i] == 'N') {
+				continue;
+			}
+			idx = i;
+			for (int j = idx; j < arr.length; j += idx) {
+				if (arr[j] == 'Y') {
+					arr[j] = 'N';
+				}else {
+					arr[j]='Y';
+				}
 			}
 			cnt++;
 		}
