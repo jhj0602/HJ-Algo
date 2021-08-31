@@ -39,7 +39,6 @@ public class SW1238_Contact {
 	}
 
 	private static void dfs(int v) {
-		System.out.println("Zzz");
 		visited[v] = true;
 		sb.append(v + " ");
 		for (int i = 0; i < N; i++) {
