@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class B10026_적록색약 {
+public class B10026_적록색약{
 	static int N;
 	static char[][] arr;
 	static int[] dx = { 0, -1, 0, 1 };
