@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class B2589_보물섬 {
+public class B2589_보물섬{
 
 	static int N, M;
 	static char[][] arr;
