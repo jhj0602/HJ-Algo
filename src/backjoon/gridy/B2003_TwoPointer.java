@@ -12,27 +12,26 @@ public class B2003_TwoPointer {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int n = Integer.parseInt(st.nextToken());
 		long m = Long.parseLong(st.nextToken());
-		int[] arr = new int[n];
+		long[] arr = new long[n];
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < n; i++) {
 			arr[i] = Integer.parseInt(st.nextToken());
 		}
 		int sum = 0;
-		int count = 0;
+		int min = 100001;
 		int left = 0, right = 0;
-		while (right != n) {
+		while (true) {
 			if (sum >= m) {
+				min = Math.min(min, right - left);
 				sum -= arr[left++];
 			} else if (right == n) {
 				break;
 			} else {
 				sum += arr[right++];
 			}
-			if (sum == m) {
-				count++;
-			}
+
 		}
-		System.out.println(count);
+		System.out.println(min == 100001 ? 0 : min);
 	}
 
 }
