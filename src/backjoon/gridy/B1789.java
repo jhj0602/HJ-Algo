@@ -14,7 +14,6 @@ public class B1789 {
 		while(S>=sum) {
 			sum+=i++;
 		}
-		
 		System.out.println(S==sum? i : i-1);
 
 	}
