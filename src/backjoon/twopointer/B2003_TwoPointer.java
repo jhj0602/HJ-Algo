@@ -1,4 +1,4 @@
-package backjoon.gridy;
+package backjoon.twopointer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
