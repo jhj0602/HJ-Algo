@@ -15,7 +15,7 @@ public class B1038 {
 			if (i % 10 < 10) {
 				count++;
 			} else {
-
+				
 			}
 
 			if (count - 1 == n) {
