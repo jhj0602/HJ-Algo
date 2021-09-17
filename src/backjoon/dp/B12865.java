@@ -20,22 +20,30 @@ public class B12865 {
 			weights[i] = Integer.parseInt(st.nextToken());
 			profits[i] = Integer.parseInt(st.nextToken());
 		}
-		int[][] dp = new int[n + 1][k + 1];
+//		int[][] dp = new int[n + 1][k + 1];
+//		for (int i = 1; i <= n; i++) {
+//			for (int j = 1; j <= k; j++) {
+//
+//				if (weights[i] <= j) {// 해당물건을 가방에 넣을 수 있다.
+//					dp[i][j] = Math.max(dp[i - 1][j], profits[i] + dp[i - 1][j - weights[i]]);
+//
+//				} else {//해당 물건을 가방에 넣을수 없다.
+//					dp[i][j] = dp[i - 1][j];
+//				}
+//				System.out.print(dp[i][j]+" ");
+//			}
+//			System.out.println();
+//		}
+
+		int dp[] = new int[k + 1];
 		for (int i = 1; i <= n; i++) {
-			for (int j = 1; j <= k; j++) {
+			for (int j = k; j >= k; j--) {
+				dp[k] = Math.max(dp[j], profits[i] + dp[k - weights[i]]);
 
-				if (weights[i] <= j) {// 해당물건을 가방에 넣을 수 있다.
-					dp[i][j] = Math.max(dp[i - 1][j], profits[i] + dp[i - 1][j - weights[i]]);
-
-				} else {//해당 물건을 가방에 넣을수 없다.
-					dp[i][j] = dp[i - 1][j];
-				}
-				System.out.print(dp[i][j]+" ");
 			}
-			System.out.println();
-		}
-		System.out.println(dp[n][k]);
 
+		}
+		System.out.println(dp[k]);
 	}
 
 }
