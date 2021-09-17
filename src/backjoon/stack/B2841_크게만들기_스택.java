@@ -24,10 +24,9 @@ public class B2841_크게만들기_스택 {
 				stack.pop();
 				temp--;
 			}
-			if (stack.size() != (N - K)) {
+			if (stack.size() != N - K) {
 				stack.push(num);
 			}
-
 		}
 		while (!stack.isEmpty()) {
 			sb.append(stack.pop());
