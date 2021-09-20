@@ -51,9 +51,7 @@ public class test2 {
 				if (flag)
 					answer[i] = 1;
 			}
-
 		}
-		System.out.println(Arrays.toString(answer));
 		return answer;
 	}
 
@@ -89,6 +87,7 @@ public class test2 {
 			if (!checker) {
 				return false;
 			}
+			
 		}
 		for (int i = 0; i < visit.length; i++) {
 			Arrays.fill(visit[i], false);
