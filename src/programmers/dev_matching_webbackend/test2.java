@@ -31,32 +31,25 @@ public class test2 {
 	public static int rotation(int x1, int y1, int x2, int y2) {
 		PriorityQueue<Integer> pq = new PriorityQueue<>();
 		int temp = map[x1][y1];
-
 		int min = temp;
 		for (int i = x1; i < x2; i++) {// 아래쪽
 			map[i][y1] = map[i + 1][y1];
-
 			min = Math.min(min, map[i][y1]);
 		}
 
 		for (int i = y1; i < y2; i++) {// 오른쪽
 			map[x2][i] = map[x2][i + 1];
-
 			min = Math.min(min, map[x2][i]);
 		}
-
 		for (int i = x2; i > x1; i--) {// 위쪽
 			map[i][y2] = map[i - 1][y2];
-
 			min = Math.min(min, map[i][y2]);
 		}
 
 		for (int i = y2; i > y1; i--) {// 왼쪽
 			map[x1][i] = map[x1][i - 1];
-			System.out.print(i + " " + y1 + " " + map[i][y1] + " ");
 			min = Math.min(min, map[x1][i]);
 		}
-		System.out.println();
 		map[x1][y1 + 1] = temp;
 
 		return min;
