@@ -13,9 +13,9 @@ public class test3_순위검색 {
 	}
 
 	public static int[] solution(String[] info, String[] query) {
-		int[] answer = {};
+		int[] answer = new int [query.length];
 		String[][] infoTemp = new String[info.length][5];
-		String[][] queryTemp = new String[query.length][5];
+		String[][] queryTemp = new String[query.length][4];
 		for (int i = 0; i < infoTemp.length; i++) {
 			String[] str = info[i].split(" ");
 			for (int j = 0; j < 5; j++) {
@@ -24,16 +24,30 @@ public class test3_순위검색 {
 		}
 		for (int i = 0; i < queryTemp.length; i++) {
 			String[] str = query[i].split("and");
-			for (int j = 0; j < 5; j++) {
-				infoTemp[i][j] = str[j];
+			for (int j = 0; j < 4; j++) {
+				queryTemp[i][j] = str[j].trim();
 			}
 		}
 		for (int i = 0; i < infoTemp.length; i++) {
-			for (int j = 0; j < 5; j++) {
-			System.out.print(infoTemp[i][j]+" ");
+			for (int j = 0; j < infoTemp[0].length; j++) {
+				System.out.print(infoTemp[i][j] + " ");
 			}
 			System.out.println();
 		}
+		System.out.println();
+		for (int i = 0; i < queryTemp.length; i++) {
+			for (int j = 0; j < queryTemp[0].length; j++) {
+				System.out.print(queryTemp[i][j].trim() + " ");
+			}
+			System.out.println();
+		}
+
+		for (int i = 0; i < queryTemp.length; i++) {
+			int cnt = 0;
+
+			answer[i] = cnt;
+		}
+
 		return answer;
 	}
 

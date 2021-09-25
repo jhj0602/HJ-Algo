@@ -3,6 +3,7 @@ package backjoon.dp;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class B12865 {
@@ -38,6 +39,7 @@ public class B12865 {
 		int dp[] = new int[k + 1];
 		for (int i = 1; i <= n; i++) {
 			for (int j = k; j >= k; j--) {
+				System.out.println(Arrays.toString(dp));
 				dp[k] = Math.max(dp[j], profits[i] + dp[k - weights[i]]);
 
 			}
