@@ -16,8 +16,6 @@ public class B16234_인구이동 {
 	static int[] dx = { 0, -1, 0, 1 };
 	static int[] dy = { 1, 0, -1, 0 };
 	static int dif;
-	static int result = 0;
-
 	static ArrayList<Dot> list = new ArrayList<>();
 
 	public static void main(String[] args) throws IOException {
@@ -34,23 +32,29 @@ public class B16234_인구이동 {
 				map[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
+		int result = 0;
+		while (true) {
+			boolean flag = false;
+			visit = new boolean[N][N];
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j < N; j++) {
+					if (!visit[i][j]) {
+						if (bfs(i, j))
+							flag = true;
 
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
-				if (!visit[i][j]) {
-					visit = new boolean[N][N];
-					bfs(i, j);
+					}
 				}
 			}
+			if (!flag) {
+				break;
+			}
+			result++;
 		}
-		
-		
-//		bfs(0, 0);
 		System.out.println(result);
-
 	}
 
-	static void bfs(int x, int y) {
+	static boolean bfs(int x, int y) {
+		boolean check = false;
 		Queue<Dot> q = new LinkedList<Dot>();
 		q.offer(new Dot(x, y));
 		int sum = map[x][y];
@@ -73,7 +77,7 @@ public class B16234_인구이동 {
 			}
 		}
 		if (cnt > 1) {
-			result++;
+			check = true;
 			int move = sum / cnt;
 			for (int i = 0; i < N; i++) {
 				for (int j = 0; j < N; j++) {
@@ -83,14 +87,7 @@ public class B16234_인구이동 {
 				}
 			}
 		}
-
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
-				System.out.print(map[i][j] + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
+		return check;
 	}
 
 	static class Dot {
