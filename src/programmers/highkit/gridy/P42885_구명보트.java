@@ -13,19 +13,15 @@ public class P42885_구명보트 {
 		int answer = 0;
 
 		Arrays.sort(people);
-		int last = people.length-1;
-		for (int i = 0; i < people.length; i++) {
-			if(people[i]+people[i+1]<=limit) {
-				answer++;
-				last--;
-			}else {
-				answer++;
+		int min = 0;
+		for (int i = people.length - 1; i >= min; i--) {
+			if (people[min] + people[i] <= limit) {
+				min++;
 			}
+			answer++;
 		}
-
-
-
 		System.out.println(answer);
+
 		return answer;
 	}
 }

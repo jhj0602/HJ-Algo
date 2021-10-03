@@ -16,7 +16,7 @@ public class B16234_인구이동 {
 	static int[] dx = { 0, -1, 0, 1 };
 	static int[] dy = { 1, 0, -1, 0 };
 	static int dif;
-	static ArrayList<Dot> list = new ArrayList<>();
+	static ArrayList<Dot> list;
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -56,12 +56,15 @@ public class B16234_인구이동 {
 	static boolean bfs(int x, int y) {
 		boolean check = false;
 		Queue<Dot> q = new LinkedList<Dot>();
+		list = new ArrayList<>();
 		q.offer(new Dot(x, y));
+		list.add(new Dot(x, y));
 		int sum = map[x][y];
 		int cnt = 1;
+		visit[x][y] = true;
 		while (!q.isEmpty()) {
 			Dot dot = q.poll();
-			visit[dot.x][dot.y] = true;
+
 			for (int i = 0; i < 4; i++) {
 				int px = dot.x + dx[i];
 				int py = dot.y + dy[i];
@@ -69,22 +72,19 @@ public class B16234_인구이동 {
 					int dif = Math.abs(map[dot.x][dot.y] - map[px][py]);
 					if (L <= dif && dif <= R) {
 						sum += map[px][py];
-						cnt++;
+
 						visit[px][py] = true;
+						list.add(new Dot(px, py));
 						q.offer(new Dot(px, py));
 					}
 				}
 			}
 		}
-		if (cnt > 1) {
+		if (list.size() > 1) {
 			check = true;
-			int move = sum / cnt;
-			for (int i = 0; i < N; i++) {
-				for (int j = 0; j < N; j++) {
-					if (visit[i][j]) {
-						map[i][j] = move;
-					}
-				}
+			int num = sum / list.size();
+			for (Dot d : list) {
+				map[d.x][d.y] = num;
 			}
 		}
 		return check;

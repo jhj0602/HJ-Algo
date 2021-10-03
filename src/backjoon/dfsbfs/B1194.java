@@ -48,42 +48,50 @@ public class B1194 {
 	}
 
 	static int bfs(int x, int y) {
-		int[][] dist = new int[n][m];
 		visit = new boolean[n][m];
+		visit[x][y] = true;
 		Queue<Dot> q = new LinkedList<Dot>();
 		int time = 0;
 		q.offer(new Dot(x, y));
 		while (!q.isEmpty()) {
+			int size = q.size();
 			time++;
-			Dot dot = q.poll();
-			for (int i = 0; i < 4; i++) {
-				int px = dot.x + dx[i];
-				int py = dot.y + dy[i];
-				if (px >= 0 && px < n && py >= 0 && py < m && map[px][py] != '#' && !visit[px][py]) {
-					boolean flag = false;
+			System.out.println(time);
+			for (int j = 0; j < size; j++) {
+				Dot dot = q.poll();
+				for (int i = 0; i < 4; i++) {
+					int px = dot.x + dx[i];
+					int py = dot.y + dy[i];
+					if (px < 0 || px >= n || py < 0 || py >= m)
+						continue;
+					if (visit[px][py] || map[px][py] == '#')
+						continue;
+
 					if (map[px][py] == '1')
 						return time;
-					if (Character.isLetterOrDigit(map[px][py]) || map[px][py] == '.') {// 숫자이거나 . 이면 가자
-						flag = true;
-					} else {
-						if (Character.isLowerCase(map[px][py])) {// 알파벳 소문자면 mapkey 삽입
-							System.out.println("zzz");
-							hashMap.put((char)(map[px][py] - 32), map[px][py]);
 
-							flag = true;
-						} else if (Character.isUpperCase(map[px][py])) {// 대문자면
-							if (hashMap.containsKey(map[px][py])) {
-								flag = true;
-							}
+					if (map[px][py] >= 'a' && map[px][py] <= 'z') {// 알파벳 소문자면 mapkey 삽입
+						
+						hashMap.put((char) (map[px][py] - 32), map[px][py]);
+						visit[px][py] = true;
+						q.offer(new Dot(px, py));
+
+					} else if (map[px][py] >= 'A' && map[px][py] <= 'Z') {// 대문자면
+						if (hashMap.containsKey(map[px][py])) {
+							visit[px][py] = true;
+							q.offer(new Dot(px, py));
 						}
-					}
-					if (flag) {
+					}else {
 						visit[px][py] = true;
 						q.offer(new Dot(px, py));
 					}
+
+				
+System.out.println(hashMap);
 				}
 			}
 		}
+		
 		return -1;
 	}
 
