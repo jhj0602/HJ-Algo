@@ -60,7 +60,6 @@ public class B16234_인구이동 {
 		q.offer(new Dot(x, y));
 		list.add(new Dot(x, y));
 		int sum = map[x][y];
-		int cnt = 1;
 		visit[x][y] = true;
 		while (!q.isEmpty()) {
 			Dot dot = q.poll();
