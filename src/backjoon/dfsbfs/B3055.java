@@ -17,6 +17,9 @@ public class B3055 {
 	static int max = 0;
 	static ArrayList<Dot> list = new ArrayList<>();
 	static int[][] dist;
+	static Queue<Dot> wQ;
+	static Queue<Dot> q;
+	static boolean[][] visit;
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -26,77 +29,64 @@ public class B3055 {
 		map = new char[N][M];
 		Dot s = null;
 		Dot d = null;
+		wQ = new LinkedList<>();
+		q = new LinkedList<>();
+		visit = new boolean[N][M];
 		for (int i = 0; i < N; i++) {
 			String line = br.readLine();
 			for (int j = 0; j < M; j++) {
 				map[i][j] = line.charAt(j);
 				if (map[i][j] == 'S') {
-					s = new Dot(i, j);
+					q.offer(new Dot(i, j));
+					visit[i][j] = true;
 				} else if (map[i][j] == 'D') {
 					d = new Dot(i, j);
 				} else if (map[i][j] == '*') {
-					list.add(new Dot(i, j));
+					wQ.offer(new Dot(i, j));
+					visit[i][j] = true;
 				}
 			}
 		}
-		bfs(s);
-		System.out.println(dist[d.x][d.y]);
+		bfs();
+		System.out.println(dist[d.x][d.y] == 0 ? "KAKTUS" : dist[d.x][d.y]);
 	}
 
-	static void bfs(Dot s) {
-		Queue<Dot> q = new LinkedList<Dot>();
-		Queue<Dot>[] wQ = new LinkedList[list.size()];
-		for (int i = 0; i < list.size(); i++) {
-			wQ[i] = new LinkedList<>();
-		}
-		boolean[][] visit = new boolean[N][M];
-		boolean[][] goVisit = new boolean[N][M];
+	static void bfs() {
 		dist = new int[N][M];
-		goVisit[s.x][s.y] = true;
-		visit[s.x][s.y] = true;
-		for (int i = 0; i < list.size(); i++) {
-			visit[list.get(i).x][list.get(i).y] = true;
-			wQ[i].offer(new Dot(list.get(i).x, list.get(i).y));
-		}
-
-		q.offer(new Dot(s.x, s.y));
 		while (!q.isEmpty()) {
-			for (int i = 0; i < N; i++) {
-				for (int j = 0; j < M; j++) {
-					System.out.print(visit[i][j] + " " + dist[i][j] + " ");
-				}
-				System.out.println();
-			}
-			System.out.println();
-			for (int i = 0; i < wQ.length; i++) {
-				Dot currentW = wQ[i].poll();
-				for (int k = 0; k < wQ[i].size(); k++) {
-					for (int j = 0; j < 4; j++) {
-						int px = currentW.x + dx[j];
-						int py = currentW.y + dy[j];
-						if (px >= 0 && px < N && py >= 0 && py < M && map[px][py] != 'D' && map[px][py] != 'X'
-								&& !visit[px][py]) {
-							visit[px][py] = true;
-							wQ[i].offer(new Dot(px, py));
-						}
+			int wSize = wQ.size();
+			for (int i = 0; i < wSize; i++) {
+				Dot currentW = wQ.poll();
+				for (int j = 0; j < 4; j++) {
+					int px = currentW.x + dx[j];
+					int py = currentW.y + dy[j];
+					if (px >= 0 && px < N && py >= 0 && py < M && map[px][py] != 'D' && map[px][py] != 'X'
+							&& !visit[px][py]) {
+						visit[px][py] = true;
+						wQ.offer(new Dot(px, py));
 					}
 				}
 			}
-			Dot currentS = q.poll();
+			int qSize = q.size();
+			
+			for (int i = 0; i < qSize; i++) {
+				Dot currentS = q.poll();
+				for (int j = 0; j < 4; j++) {
+					int px = currentS.x + dx[j];
+					int py = currentS.y + dy[j];
+					if (px >= 0 && px < N && py >= 0 && py < M && map[px][py] != 'X' && !visit[px][py]) {
+						visit[px][py] = true;
+						dist[px][py] = dist[currentS.x][currentS.y] + 1;
+						q.offer(new Dot(px, py));
+						if (map[px][py] == 'D') {
+							return;
+						}
+					}
 
-			for (int i = 0; i < 4; i++) {
-				int px = currentS.x + dx[i];
-				int py = currentS.y + dy[i];
-				if (px >= 0 && px < N && py >= 0 && py < M && map[px][py] != 'X' && !visit[px][py]
-						&& !goVisit[px][py]) {
-					goVisit[px][py] = true;
-
-					dist[px][py] = dist[currentS.x][currentS.y] + 1;
-					q.offer(new Dot(px, py));
 				}
 			}
-
 		}
+
 	}
 
 	static class Dot {
