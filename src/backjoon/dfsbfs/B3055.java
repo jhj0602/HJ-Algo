@@ -68,7 +68,6 @@ public class B3055 {
 				}
 			}
 			int qSize = q.size();
-			
 			for (int i = 0; i < qSize; i++) {
 				Dot currentS = q.poll();
 				for (int j = 0; j < 4; j++) {

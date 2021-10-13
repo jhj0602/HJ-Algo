@@ -87,8 +87,7 @@ public class B17135_캐슬디펜스 {
 						q.offer(minX);
 						q.offer(minY);
 					}
-				} // for - k(궁수 3명 탐색)
-
+				} 
 				while (!q.isEmpty()) {
 					int x = q.poll();
 					int y = q.poll();
@@ -97,7 +96,7 @@ public class B17135_캐슬디펜스 {
 						count++;
 					}
 				}
-				////// 하나의 턴 끝//////
+				
 				turn++;
 			}
 
