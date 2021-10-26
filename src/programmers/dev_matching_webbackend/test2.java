@@ -36,7 +36,6 @@ public class test2 {
 			map[i][y1] = map[i + 1][y1];
 			min = Math.min(min, map[i][y1]);
 		}
-
 		for (int i = y1; i < y2; i++) {// 오른쪽
 			map[x2][i] = map[x2][i + 1];
 			min = Math.min(min, map[x2][i]);
@@ -45,13 +44,11 @@ public class test2 {
 			map[i][y2] = map[i - 1][y2];
 			min = Math.min(min, map[i][y2]);
 		}
-
 		for (int i = y2; i > y1; i--) {// 왼쪽
 			map[x1][i] = map[x1][i - 1];
 			min = Math.min(min, map[x1][i]);
 		}
 		map[x1][y1 + 1] = temp;
-
 		return min;
 
 	}
