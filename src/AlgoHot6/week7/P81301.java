@@ -21,7 +21,7 @@ public class P81301 {
 		map.put("seven", 7);
 		map.put("eight", 8);
 		map.put("nine", 9);
-
+		
 		for (int i = 0; i < s.length(); i++) {
 			if (Character.isDigit(s.charAt(i))) {
 				answer += s.charAt(i);
