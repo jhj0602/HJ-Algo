@@ -52,6 +52,7 @@ public class test2 {
 					answer[i] = 1;
 			}
 		}
+		System.out.println(Arrays.toString(answer));
 		return answer;
 	}
 
@@ -89,9 +90,7 @@ public class test2 {
 			}
 			
 		}
-		for (int i = 0; i < visit.length; i++) {
-			Arrays.fill(visit[i], false);
-		}
+		visit = new boolean[5][5];
 		return true;
 	}
 
