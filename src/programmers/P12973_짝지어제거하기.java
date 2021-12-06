@@ -1,20 +1,23 @@
 package programmers;
 
+import java.util.Stack;
+
 public class P12973_짝지어제거하기 {
 	public static void main(String[] args) {
 		System.out.println(solution("baabaa"));
 	}
 
 	public static int solution(String s) {
-		int answer = -1;
+		Stack<Character> stack = new Stack<>();
 
-		StringBuffer str = new StringBuffer(s);
-		for (int i = 1; i < str.length(); i++) {
-			if (str.charAt(i - 1) == str.charAt(i)) {
-				str = str.replace(i - 1, i + 1,"");
-				i = 0;
+		for (int i = 0; i < s.length(); i++) {
+
+			if (!stack.isEmpty() && s.charAt(i) == stack.peek()) {
+				stack.pop();
+			} else {
+				stack.push(s.charAt(i));
 			}
 		}
-		return str.length() == 0 ? 1 : 0;
+		return stack.isEmpty() ? 1 : 0;
 	}
 }
