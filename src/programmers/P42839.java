@@ -35,12 +35,10 @@ public class P42839 {
 		}
 
 		for (int i = 0; i < numberArr.length; i++) {
-			temp[cnt] = numberArr[i];
 			if (visit[i])
 				continue;
-			temp[cnt] = numberArr[i];
 			visit[i] = true;
-			combination(cnt + 1, str + temp[cnt]);
+			combination(cnt + 1, str + numberArr[i]);
 			visit[i] = false;
 		}
 	}
