@@ -1,3 +1,4 @@
+//Level2 오픈채팅방
 package programmers;
 
 import java.util.ArrayList;
