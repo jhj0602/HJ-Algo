@@ -1,5 +1,5 @@
 //Level2 오픈채팅방
-package programmers;
+package programmers.Level2;
 
 import java.util.ArrayList;
 import java.util.Arrays;

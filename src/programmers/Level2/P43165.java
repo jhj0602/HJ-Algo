@@ -1,5 +1,5 @@
 //Level2 타켓넘버 재귀
-package programmers;
+package programmers.Level2;
 
 public class P43165 {
 	static int answer = 0;
