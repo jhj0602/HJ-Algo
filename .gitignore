@@ -1,6 +1,7 @@
 .idea
+/out
 /bin
-HJ-Algo.iml
+Java-Algo.iml
 src/dhk
 src/naver_live
 src/AlgoHot6

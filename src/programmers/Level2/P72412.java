@@ -1,4 +1,4 @@
-package programmers.Level2;
+package programmers.level2;
 
 public class P72412 {
 	public static void main(String[] args) {

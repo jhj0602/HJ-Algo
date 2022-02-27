@@ -1,5 +1,5 @@
 //완전탐색/소수찾기
-package programmers.Level2;
+package programmers.level2;
 
 import java.util.HashSet;
 

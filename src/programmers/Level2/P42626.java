@@ -1,5 +1,5 @@
 //level2 더 맵게 힙
-package programmers.Level2;
+package programmers.level2;
 
 import java.util.PriorityQueue;
 

@@ -1,5 +1,5 @@
 // Level2 뉴스 클러스터링
-package programmers.Level2;
+package programmers.level2;
 
 import java.util.ArrayList;
 import java.util.Collections;

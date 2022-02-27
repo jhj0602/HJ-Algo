@@ -1,4 +1,4 @@
-package programmers.Level2;
+package programmers.level2;
 
 import java.util.Arrays;
 import java.util.LinkedList;
