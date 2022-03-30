@@ -1,5 +1,7 @@
 package programmers.level2;
 
+import java.util.HashMap;
+
 public class P72412 {
 	public static void main(String[] args) {
 		P72412 p = new P72412();
@@ -13,14 +15,8 @@ public class P72412 {
 
 	public int[] solution(String[] info, String[] query) {
 		int[] answer = {};
-		for (int i = 0; i < query.length; i++) {
-			for (int j = 0; j < info.length; j++) {
-				
-			}
-			
-			
-			
-		}
+		HashMap<>
+		for ()
 		return answer;
 	}
 
