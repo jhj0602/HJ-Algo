@@ -3,51 +3,42 @@ package programmers.level2;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class P17677 {
 
-    public static void main(String[] args) {
-        P17677 p = new P17677();
-        System.out.println(p.solution("aa1+aa2", "AAAA12"));
+	public static void main(String[] args) {
+		P17677 p = new P17677();
+		p.solution("aa1+aa2", "AAAA12");
 
-    }
+	}
 
-    public int solution(String str1, String str2) {
-        int answer = 0;
-        ArrayList<String> multiSet1 = new ArrayList<>();
-        ArrayList<String> multiSet2 = new ArrayList<>();
-        int union = 0;
-        int intersection = 0;
-        str1 = str1.toLowerCase();
-        str2 = str2.toLowerCase();
-        for (int i = 1; i < str1.length(); i++) {
-            char t1 = str1.charAt(i - 1);
-            char t2 = str1.charAt(i);
-            if (Character.isAlphabetic(t1) && Character.isAlphabetic(t2)) {
-                multiSet1.add(t1 + "" + t2);
-            }
-        }
-        for (int i = 1; i < str2.length(); i++) {
-            char t1 = str2.charAt(i - 1);
-            char t2 = str2.charAt(i);
-            if (Character.isAlphabetic(t1) && Character.isAlphabetic(t2)) {
-                multiSet2.add(t1 + "" + t2);
-            }
-        }
-        for (String s : multiSet1) {
-            if (multiSet2.remove(s)) {
-                intersection++;
-            }
-            union++;
-        }
-        union += multiSet2.size();
-        double jakard = 0;
+	public int solution(String str1, String str2) {
+		int answer = 0;
+		str1 = str1.toUpperCase();
+		str2 = str2.toUpperCase();
+		ArrayList<String> firstList = new ArrayList<>();
+		for (int i = 1; i < str1.length(); i++) {
+			char c1= str1.charAt(i - 1);
+			char c2 =str1.charAt(i);
+			if(Character.isAlphabetic(c1)&&Character.isAlphabetic(c2)) {
+				firstList.add(c1+""+c2);
+			}
+			
+		}
+		Collections.sort(firstList);
+		System.out.println(firstList);
+		List<String> secondList = new ArrayList<>();
+		for (int i = 1; i < str2.length(); i++) {
+			char c1= str2.charAt(i - 1);
+			char c2 =str2.charAt(i);
+			if(Character.isAlphabetic(c1)&&Character.isAlphabetic(c2)) {
+				secondList.add(c1+""+c2);
+			}
+		}
+		Collections.sort(secondList);
+		System.out.println(secondList);
+		return answer;
+	}
 
-        if (union == 0) {
-            jakard = 1;
-        } else {
-            jakard = (double) intersection/ (double) union;
-        }
-        return (int) (jakard * 65536);
-    }
 }
