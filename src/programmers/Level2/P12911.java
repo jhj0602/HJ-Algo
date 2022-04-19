@@ -7,7 +7,21 @@ public class P12911 {
     @Test
     public void 정답() {
         System.out.println(solution(78));
+        System.out.println(solution2(78));
 
+    }
+    //다른사람코드
+    public int solution2(int n) {
+        int answer = Integer.bitCount(n);
+
+        while(true) {
+            n++;
+            if(answer == Integer.bitCount(n) ) {
+                answer = n;
+                break;
+            }
+        }
+        return answer;
     }
 
     public int solution(int n) {
